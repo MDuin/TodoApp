@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import AddItemButton from './components/add-item-button';
+import TodoItemList from './components/todo-list.js';
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      todoItems: [{description: "een", isDone: false},
+      {description: "twee", isDone: true},
+      {description: "drie", isDone: false}, ],
+      showAddItem: false
+    }
+  }
+
+  showAddItem = () => {
+    console.log("hoi");
+    this.setState({ showAddItem: true });
+  }
+
   render() {
+
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <TodoItemList todoItems={this.state.todoItems} />
+        <AddItemButton showAddItem={this.showAddItem} />
       </div>
     );
   }
