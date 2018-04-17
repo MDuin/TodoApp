@@ -1,31 +1,90 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import AddItem from './components/add-item';
 import AddItemButton from './components/add-item-button';
-import TodoItemList from './components/todo-list.js';
+import TodoItemList from './components/todo-list';
 
+//window.id = 0;
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      todoItems: [{description: "een", isDone: false},
-      {description: "twee", isDone: true},
-      {description: "drie", isDone: false}, ],
+      todoItems: [],
       showAddItem: false
     }
+
+    this.itemId = 0;
+
+    this.addItemToList = this.addItemToList.bind(this);
+    this.removeFromList = this.removeFromList.bind(this);
+    this.toggleItemDone = this.toggleItemDone.bind(this);
+  }
+
+  /**
+   *  Adds a new todo item to the state.
+   */
+  addItemToList(item) {
+    //Slice to make sure to not directly modify the state
+    var newArr = this.state.todoItems.slice();
+    newArr.push({description: item, isDone: false, id: this.itemId++});
+    this.setState({ todoItems: newArr });
+    this.setState({ showAddItem: false });
+  }
+
+  removeFromList(id) {
+    //Slice to make sure to not directly modify the state
+    var newArr = this.state.todoItems.slice();
+    var remainingItems = newArr.filter((todo) => {
+      if(todo.id !== id) {
+        return todo;
+      } else {
+        //prevent warnings..
+        return null;
+      }
+    });
+
+    this.setState({todoItems: remainingItems});
+  }
+
+  toggleItemDone(id) {
+    //Slice to make sure to not directly modify the state
+    var newArr = this.state.todoItems.slice();
+    var item = newArr.find((todo) => {
+      if(todo.id === id) {
+        return todo;
+      } else {
+        //prevent warnings..
+        return null;
+      }
+    });
+
+    newArr[newArr.indexOf(item)].isDone = !newArr[newArr.indexOf(item)].isDone;
+    this.setState({todoItems: newArr});
   }
 
   showAddItem = () => {
-    console.log("hoi");
     this.setState({ showAddItem: true });
   }
 
   render() {
-
+    if (this.state.showAddItem) {
+      return (
+        <div className="App">
+          <AddItem addItemToList={this.addItemToList} />
+          <TodoItemList todoItems={this.state.todoItems}
+                        remove={this.removeFromList}
+                        done={this.toggleItemDone}/>
+          <AddItemButton showAddItem={this.showAddItem} />
+        </div>
+      );
+    }
     return (
       <div className="App">
-        <TodoItemList todoItems={this.state.todoItems} />
+        <TodoItemList todoItems={this.state.todoItems}
+                      remove={this.removeFromList}
+                      done={this.toggleItemDone}/>
         <AddItemButton showAddItem={this.showAddItem} />
       </div>
     );

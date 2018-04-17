@@ -1,20 +1,25 @@
 import React from 'react';
 import TodoItem from './todo-item.js';
 
-const TodoItemList = ({todoItems}) => {
-  const todoItemsList = todoItems.map((todoItem) => {
+const TodoItemList = ({todoItems, remove, done}) => {
+  const todoItemsList = todoItems.map((todoItem, key) => {
     return (
-      <TodoItem
-        description={todoItem.description}
-        isDone={todoItem.isDone} />
-    )
+        <TodoItem
+          todo={todoItem}
+          remove={remove}
+          done={done}
+          key={key}/>
+    );
   });
 
-  return (
-    <ul className="list-group">
-      {todoItemsList}
-    </ul>
-  );
+  if (todoItemsList.length > 0) {
+    return (
+      <ul className="list-group todo-list">
+        {todoItemsList}
+      </ul>);
+  } else {
+    return (<div>Gebruik de knop rechtsonderin om een nieuw item toe te voegen</div>);
+  }
 };
 
 export default TodoItemList;

@@ -1,0 +1,28 @@
+.flexDiv {
+  display: flex;
+  margin: auto;
+  width: 50%;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  display:inline-block;
+  vertical-align: top;
+}
+
+.flexDiv:hover {
+background-color: #eee;
+}
+
+.item-description {
+  width: 75%;
+  float:left;
+  border-right:
+}
+
+.item-button {
+  width:12%;
+  float:right;
+}
+
+.isDone {
+  background-color: #00ee0050;
+}
