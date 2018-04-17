@@ -9,6 +9,9 @@
   text-align: center;
   padding: 0; }
 
+.add-item-button:hover {
+  background-color: #eee; }
+
 .flexDiv {
   display: flex;
   margin: auto;
@@ -54,4 +57,7 @@
   padding: 0; }
 
 .App {
+  text-align: center; }
+
+h1 {
   text-align: center; }
