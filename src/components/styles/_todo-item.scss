@@ -1,0 +1,46 @@
+.flexDiv {
+  display: flex;
+  margin: auto;
+  width: 100%;
+  @include vp-large {
+    width: 75%;
+  }
+  @include vp-vlarge {
+    width: 50%;
+  }
+  border-radius: 4px;
+  border: 1px solid $color-border;
+  display:inline-block;
+  vertical-align: top;
+}
+
+.flexDiv:hover {
+  background-color: $color-background-hover;
+}
+
+.item-description {
+  width: 75%;
+  @include vp-medium {
+    width: 60%;
+  }
+  @include vp-small {
+    width: 50%;
+  }
+  float:left;
+}
+
+.item-button {
+  width:12%;
+  @include vp-medium {
+    width: 19%;
+  }
+  @include vp-small {
+    width: 24%;
+  }
+
+  float:right;
+}
+
+.isDone {
+  background-color: $color-background-done;
+}

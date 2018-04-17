@@ -1,0 +1,29 @@
+//Media queries
+$medium-width: 768px;
+$large-width: 1024px;
+$vlarge-width: 1479px;
+
+//Viewports
+@mixin vp-small() {
+  @media (max-width: #{$medium-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin vp-medium() {
+  @media (min-width: #{$medium-width}) and (max-width: #{$large-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin vp-large() {
+  @media (min-width: #{$large-width}) {
+    @content;
+  }
+}
+
+@mixin vp-vlarge() {
+  @media (min-width: #{$vlarge-width}) {
+    @content;
+  }
+}
