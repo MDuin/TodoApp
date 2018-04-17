@@ -5,7 +5,7 @@ const TodoItem = ({todo, remove, done}) => {
     <div className={"flexDiv " + (todo.isDone ? 'isDone' : '')}>
       <div onClick={() => done(todo.id)} className="item-description">{todo.description}</div>
       {todo.isDone && <div className="item-button" onClick={() => done(todo.id)}>Gedaan</div>}
-      {!todo.isDone && <div onClick={() => done(todo.id)} className="item-button">Niet gedaan</div>}
+      {!todo.isDone && <div className="item-button" onClick={() => done(todo.id)}>Niet gedaan</div>}
       <div onClick={() => remove(todo.id)} className="item-button">Verwijder</div>
     </div>);
 }

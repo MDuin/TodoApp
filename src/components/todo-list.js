@@ -14,7 +14,7 @@ const TodoItemList = ({todoItems, remove, done}) => {
 
   if (todoItemsList.length > 0) {
     return (
-      <ul className="list-group todo-list">
+      <ul className="todo-list">
         {todoItemsList}
       </ul>);
   } else {
