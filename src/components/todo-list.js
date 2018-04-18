@@ -18,7 +18,7 @@ const TodoItemList = ({todoItems, remove, done}) => {
         {todoItemsList}
       </ul>);
   } else {
-    return (<div>Gebruik de knop rechtsonderin om een nieuw item toe te voegen</div>);
+    return (<div>Typ hierboven de beschrijving van een nieuw item in.</div>);
   }
 };
 
