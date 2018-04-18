@@ -1,31 +1,10 @@
-.add-item-button {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  width: 50px;
-  height: 50px;
-  border: 3px solid #ddd;
-  border-radius: 5px;
-  text-align: center;
-  padding: 0; }
-
-.add-item-button:hover {
-  background-color: #eee; }
-
 .flexDiv {
   display: flex;
   margin: auto;
   width: 100%;
-  border-radius: 4px;
-  border: 1px solid #ddd;
   display: inline-block;
-  vertical-align: top; }
-  @media (min-width: 1024px) {
-    .flexDiv {
-      width: 75%; } }
-  @media (min-width: 1479px) {
-    .flexDiv {
-      width: 50%; } }
+  vertical-align: top;
+  border-bottom: 1px solid #ddd; }
 
 .flexDiv:hover {
   background-color: #eee; }
@@ -54,7 +33,24 @@
   background-color: #00ee0050; }
 
 .todo-list {
-  padding: 0; }
+  padding: 0;
+  margin: auto;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ddd; }
+  @media (min-width: 1024px) {
+    .todo-list {
+      width: 75%; } }
+  @media (min-width: 1479px) {
+    .todo-list {
+      width: 50%; } }
+
+.input-container {
+  margin-bottom: 10px; }
+
+.input-box {
+  width: 20%;
+  border: 1px solid #ddd; }
 
 .App {
   text-align: center; }

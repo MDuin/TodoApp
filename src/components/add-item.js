@@ -4,8 +4,8 @@ class AddItem extends React.Component {
 
   render() {
     return (<div className="input-container">
-        <p>Beschrijving:</p>
-        <input type="text"
+        <div>Beschrijving:</div>
+        <input className="input-box" type="text"
             ref={(input) => { this.descriptionInput = input; }}
             onKeyPress={event => this.handleKeyPress(event)} />
       </div>
@@ -19,6 +19,7 @@ class AddItem extends React.Component {
   handleKeyPress(event) {
     if (event.key === 'Enter') {
       this.props.addItemToList(event.target.value);
+      event.target.value = "";
     }
   }
 }
