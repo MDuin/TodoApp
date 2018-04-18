@@ -12,6 +12,7 @@ class AddItem extends React.Component {
     );
   }
 
+  //Make sure the input is focussed immediately.
   componentDidMount() {
     this.descriptionInput.focus();
   }

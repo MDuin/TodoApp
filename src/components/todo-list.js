@@ -12,6 +12,7 @@ const TodoItemList = ({todoItems, remove, done}) => {
     );
   });
 
+  //In case list is empty
   if (todoItemsList.length > 0) {
     return (
       <ul className="todo-list">
