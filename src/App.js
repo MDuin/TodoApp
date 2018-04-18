@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 
 import AddItem from './components/add-item';
-import AddItemButton from './components/add-item-button';
 import TodoItemList from './components/todo-list';
 
 //window.id = 0;
@@ -11,8 +10,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      todoItems: [],
-      showAddItem: false
+      todoItems: []
     }
 
     this.itemId = 0;
@@ -30,7 +28,6 @@ class App extends Component {
     var newArr = this.state.todoItems.slice();
     newArr.push({description: item, isDone: false, id: this.itemId++});
     this.setState({ todoItems: newArr });
-    this.setState({ showAddItem: false });
   }
 
   removeFromList(id) {
@@ -64,28 +61,13 @@ class App extends Component {
     this.setState({todoItems: newArr});
   }
 
-  showAddItem = () => {
-    this.setState({ showAddItem: true });
-  }
-
   render() {
-    if (this.state.showAddItem) {
-      return (
-        <div className="App">
-          <AddItem addItemToList={this.addItemToList} />
-          <TodoItemList todoItems={this.state.todoItems}
-                        remove={this.removeFromList}
-                        done={this.toggleItemDone}/>
-          <AddItemButton showAddItem={this.showAddItem} />
-        </div>
-      );
-    }
     return (
       <div className="App">
+        <AddItem addItemToList={this.addItemToList} />
         <TodoItemList todoItems={this.state.todoItems}
                       remove={this.removeFromList}
                       done={this.toggleItemDone}/>
-        <AddItemButton showAddItem={this.showAddItem} />
       </div>
     );
   }

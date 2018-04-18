@@ -1,10 +1,14 @@
 @import './components/styles/_colors';
 @import './components/styles/_mixins';
-@import './components/styles/_add-item-button';
 @import './components/styles/_todo-item';
 @import './components/styles/_todo-list';
+@import './components/styles/_add-item';
 
 
 .App {
+  text-align: center;
+}
+
+h1 {
   text-align: center;
 }
