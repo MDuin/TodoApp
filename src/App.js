@@ -15,6 +15,7 @@ class App extends Component {
 
     this.itemId = 0;
 
+    //Make sure the proper "this" is used on callback
     this.addItemToList = this.addItemToList.bind(this);
     this.removeFromList = this.removeFromList.bind(this);
     this.toggleItemDone = this.toggleItemDone.bind(this);
@@ -57,6 +58,7 @@ class App extends Component {
       }
     });
 
+    //Toggle isDone
     newArr[newArr.indexOf(item)].isDone = !newArr[newArr.indexOf(item)].isDone;
     this.setState({todoItems: newArr});
   }
